@@ -9,24 +9,62 @@
 // interfaccia un pò eleaorata con CSS.
 
 
+const prezzoKm = 0.21;
+// €/km
+const scontoMin = 20;
+// %
+const scontoOver = 40;
+// %
+
+
 
 
 // riferimenti
-const titolo = document.getElementById("title");
+const title = document.getElementById("title");
 const inputNome = document.getElementById("name");
-const myButton = document.querySelector("button");
+const inputKm = document.getElementById("km");
+const genera = document.querySelector("button#genera");
+const inputfasciaEta = document.getElementById("fasciaEta");
 
 
 let nome;
+let km;
+let fasciaEta;
+let sconto;
+let prezzo;
 
 
 
-myButton.addEventListener("click",
+
+genera.addEventListener("click",
     function(){
         nome = inputNome.value;
-        titolo.append(nome);
-        titolo.innerHTML = "Ciao " + nome;
-        inputNome.value = "";
+        title.innerHTML = "Ciao " + nome ;
+        console.log("nome:", nome);
+
+        km = inputKm.value;
+        console.log("km:", km);
+
+        fasciaEta = inputfasciaEta.value;
+        console.log("fasciaEta:", fasciaEta);
+        
+        
+        if (fasciaEta === "min"){
+            sconto = scontoMin;
+        } else if (fasciaEta === "over"){
+            sconto = scontoOver;
+        }else{
+            sconto = 0;
+        };
+        console.log("sconto:", sconto);
+
+        
+        prezzo = (km * prezzoKm * (1-(sconto/100)));
+        console.log("prezzo:", prezzo);
+
+        
+
+        document.getElementById("prezzo").innerHTML = `${prezzo.toFixed(2)}€`;
 
     }
 );
@@ -40,21 +78,9 @@ myButton.addEventListener("click",
 
 
 
+// inputkm.value = "";
 
 
-// const prezzoKm = 0.21;
-// // €/km
-// const scontoMin = 20;
-// // %
-// const etaMin = 18;
-// // anni
-// const scontoOver = 40;
-// // %
-// const etaOver = 65;
-// // anni
-
-// let sconto = 0;
-// // %
 
 
 // // chiedo i km
@@ -136,15 +162,3 @@ myButton.addEventListener("click",
 
 
 
-
-
-const prezzoKm = 0.21;
-// €/km
-const scontoMin = 20;
-// %
-const etaMin = 18;
-// anni
-const scontoOver = 40;
-// %
-const etaOver = 65;
-// anni
