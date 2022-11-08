@@ -112,9 +112,9 @@ annulla.addEventListener("click",
         km = "";
         inputKm.value = "";
         console.log("km:", km);
-        fasciaEta = "";
-        inputfasciaEta.value = "";
-        console.log("fasciaEta:", fasciaEta);
+        // fasciaEta = "";
+        // inputfasciaEta.value = "";
+        // console.log("fasciaEta:", fasciaEta);
         
         
         

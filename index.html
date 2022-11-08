@@ -24,34 +24,57 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
-    <br><br><br><br><br><br>
-    <h1 >Benvenuto</h1>
+    <div class="container">
+        <div class="finestra">
+            <h3 >CALCOLA IL PREZZO DEL TUO BIGLIETTO</h3>
+            <div class="interfaccia">
+                <div class="riga-meta">
+                    <div class="input">
+                        Nome Cognome <br>
+                        <input type="text" id="name">
+                    </div>
+                    <div class="input">
+                        Km da percorrere <br>
+                        <input type="text" id="km">
+                    </div>
+                    <div class="input">
+                        Fascia d'età <br>
+                        <select id="fasciaEta">
+                            <option value="Min">Minorenne</option>
+                            <option value="Magg">Maggiorenne</option>
+                            <option value="Over">Over65</option> 
+                        </select><br>
+                    </div>
 
-    <input type="text" id="name"><br>
+                </div>
+                <div class="riga-meta">
+                    <button id="genera">genera</button>
+                    <button id="annulla">annulla</button>                   
 
-    <h5>Quanti km devi fare?</h5>
+                </div>
+        
+        
+        
+        
+        
+        
+            </div>
 
-    <input type="text" id="km"><br>
+            
+            <div class="biglietto">
+                <div id="nome"></div>
+                <div id="kmOutPut"></div>
+                <div id="offerta"></div>
+                <div id="prezzo"></div>
+                <div id="carrozza"></div>
+                <div id="codiceCP"></div>
+    
+            </div>
 
-    <select id="fasciaEta">
-        <option value="Min">Minorenne</option>
-        <option value="Magg">Maggiorenne</option>
-        <option value="Over">Over65</option> 
-    </select><br>
-
-    <button id="genera">genera</button>
-    <button id="annulla">annulla</button>
-
-    <div class="biglietto">
-        <div id="nome"></div>
-        <div id="kmOutPut"></div>
-        <div id="offerta"></div>
-        <div id="prezzo"></div>
-        <div id="carrozza"></div>
-        <div id="codiceCP"></div>
+        </div>
+    
 
     </div>
-
 
 
 
