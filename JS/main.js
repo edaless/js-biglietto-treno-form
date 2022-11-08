@@ -10,46 +10,78 @@
 
 
 
-const prezzoKm = 0.21;
-// €/km
-const scontoMin = 20;
-// %
-const etaMin = 18;
-// anni
-const scontoOver = 40;
-// %
-const etaOver = 65;
-// anni
 
-let sconto = 0;
-// %
+// riferimenti
+const titolo = document.getElementById("title");
+const inputNome = document.getElementById("name");
+const myButton = document.querySelector("button");
 
-let km;
+
+let nome;
+
+
+
+myButton.addEventListener("click",
+    function(){
+        nome = inputNome.value;
+        titolo.append(nome);
+        titolo.innerHTML = "Ciao " + nome;
+        inputNome.value = "";
+
+    }
+);
+
+
+
+
+
+
+
+
+
+
+
+
+// const prezzoKm = 0.21;
+// // €/km
+// const scontoMin = 20;
+// // %
+// const etaMin = 18;
+// // anni
+// const scontoOver = 40;
+// // %
+// const etaOver = 65;
+// // anni
+
+// let sconto = 0;
+// // %
+
+
+// // chiedo i km
+// let km = parseInt( prompt("Di quanti km vuoi fare il viaggio?"));
 // console.log("km:",km);
-let eta;
+
+// // chiedo eta
+// let eta = parseInt( prompt("Quanti anni hai?"));
 // console.log("eta:",eta);
-let name = inputField.value;
-
-
-const nome = document.getElementById("name");
 
 
 
+// // determino se c'è uno sconto
+// // sconto minorenne
+// if(eta < etaMin){
+//     sconto = scontoMin;
+// }
+// // sconto over
+// if(eta >= etaOver){
+//     sconto = scontoOver;
+// }
 
-// myButton.addEventListener("click",
-
-//     function(){
-//         nome = inputField.value;
-
-//     }
-// );
+// console.log("sconto:", sconto);
 
 
 
-
-
-
-// calcolo il prezzo
+// // calcolo il prezzo
 // let prezzo = (km * prezzoKm * (1-(sconto/100)));
 // console.log("prezzo:", prezzo);
 
@@ -57,7 +89,7 @@ const nome = document.getElementById("name");
 
 
 
-// output
+// // output
 // document.getElementById("km").innerHTML = 
 // `${km} km`;
 // document.getElementById("sconto").innerHTML = 
@@ -77,3 +109,42 @@ const nome = document.getElementById("name");
 //     document.getElementById("prezzoListino").innerHTML = 
 //     `${prezzoListino.toFixed(2)}€`;
 // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const prezzoKm = 0.21;
+// €/km
+const scontoMin = 20;
+// %
+const etaMin = 18;
+// anni
+const scontoOver = 40;
+// %
+const etaOver = 65;
+// anni
