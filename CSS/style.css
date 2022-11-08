@@ -11,3 +11,19 @@ font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
 }
+
+
+.biglietto{
+    background-color: blue;
+    min-height: 200px;
+    min-width: 200px;
+    display: none;
+}
+
+
+.active{
+    display: block;
+}
+.notActive{
+    display: none;
+}

@@ -11,10 +11,20 @@
 
 const prezzoKm = 0.21;
 // €/km
+
 const scontoMin = 20;
+// %
+const scontoMagg = 0;
 // %
 const scontoOver = 40;
 // %
+
+const offertaMin = "Biglietto Minori (sconto del "+ scontoMin +"%)";
+const offertaMagg = "Biglietto Standard";
+const offertaOver = "Biglietto Over65 (sconto del "+ scontoOver +"%)";
+
+const carrozza = Math.floor(Math.random() * 12) + 1;
+const codiceCP = Math.floor(Math.random() * 99999) + 1;
 
 
 
@@ -23,15 +33,21 @@ const scontoOver = 40;
 const title = document.getElementById("title");
 const inputNome = document.getElementById("name");
 const inputKm = document.getElementById("km");
-const genera = document.querySelector("button#genera");
 const inputfasciaEta = document.getElementById("fasciaEta");
+const genera = document.querySelector("button#genera");
+const annulla = document.querySelector("button#annulla");
+const biglietto = document.querySelector(".biglietto");
+
 
 
 let nome;
 let km;
 let fasciaEta;
 let sconto;
+let offerta;
 let prezzo;
+
+
 
 
 
@@ -39,33 +55,80 @@ let prezzo;
 genera.addEventListener("click",
     function(){
         nome = inputNome.value;
-        title.innerHTML = "Ciao " + nome ;
+        // title.innerHTML = "Ciao " + nome ;
         console.log("nome:", nome);
 
-        km = inputKm.value;
+        km = parseInt(inputKm.value);
         console.log("km:", km);
 
         fasciaEta = inputfasciaEta.value;
         console.log("fasciaEta:", fasciaEta);
         
         
-        if (fasciaEta === "min"){
+        if (fasciaEta === "Min"){
             sconto = scontoMin;
-        } else if (fasciaEta === "over"){
+            offerta = offertaMin;
+        };
+        if (fasciaEta === "Magg"){
+            sconto = scontoMagg;
+            offerta = offertaMagg;
+        };
+        if (fasciaEta === "Over"){
             sconto = scontoOver;
-        }else{
-            sconto = 0;
+            offerta = offertaOver;
         };
         console.log("sconto:", sconto);
+        console.log("offerta:", offerta);
 
         
         prezzo = (km * prezzoKm * (1-(sconto/100)));
         console.log("prezzo:", prezzo);
 
         
-
+        // output
+        document.getElementById("nome").innerHTML = `${nome}`;
+        document.getElementById("kmOutPut").innerHTML = `${km} km`;
+        document.getElementById("offerta").innerHTML = `${offerta}`;
         document.getElementById("prezzo").innerHTML = `${prezzo.toFixed(2)}€`;
 
+        document.getElementById("carrozza").innerHTML = `${carrozza}`;
+        document.getElementById("codiceCP").innerHTML = `${codiceCP}`;
+
+
+        biglietto.classList.add("active");
+
+    }
+);
+
+
+
+
+
+annulla.addEventListener("click",
+    function(){
+        nome = "";
+        inputNome.value = "";
+        console.log("nome:", nome);
+        km = "";
+        inputKm.value = "";
+        console.log("km:", km);
+        fasciaEta = "";
+        inputfasciaEta.value = "";
+        console.log("fasciaEta:", fasciaEta);
+        
+        
+        
+        // console.log("sconto:", sconto);
+        console.log("offerta:", offerta);
+
+        
+        
+        // console.log("prezzo:", prezzo);
+        biglietto.classList.remove("active");
+
+        
+        
+        
     }
 );
 
@@ -76,65 +139,6 @@ genera.addEventListener("click",
 
 
 
-
-
-// inputkm.value = "";
-
-
-
-
-// // chiedo i km
-// let km = parseInt( prompt("Di quanti km vuoi fare il viaggio?"));
-// console.log("km:",km);
-
-// // chiedo eta
-// let eta = parseInt( prompt("Quanti anni hai?"));
-// console.log("eta:",eta);
-
-
-
-// // determino se c'è uno sconto
-// // sconto minorenne
-// if(eta < etaMin){
-//     sconto = scontoMin;
-// }
-// // sconto over
-// if(eta >= etaOver){
-//     sconto = scontoOver;
-// }
-
-// console.log("sconto:", sconto);
-
-
-
-// // calcolo il prezzo
-// let prezzo = (km * prezzoKm * (1-(sconto/100)));
-// console.log("prezzo:", prezzo);
-
-
-
-
-
-// // output
-// document.getElementById("km").innerHTML = 
-// `${km} km`;
-// document.getElementById("sconto").innerHTML = 
-// `${sconto} %`;
-// document.getElementById("eta").innerHTML = 
-// `${eta} anni`;
-
-
-// document.getElementById("prezzo").innerHTML = 
-// `${prezzo.toFixed(2)}€`;
-// // il toFixed dice quante cifre tenere
-
-
-// if(sconto != 0){
-//     let prezzoListino = km * prezzoKm;
-    
-//     document.getElementById("prezzoListino").innerHTML = 
-//     `${prezzoListino.toFixed(2)}€`;
-// }
 
 
 
