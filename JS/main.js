@@ -19,9 +19,10 @@ const scontoMagg = 0;
 const scontoOver = 40;
 // %
 
-const offertaMin = "Biglietto Minori (sconto del "+ scontoMin +"%)";
+//arr delle offerte
+const offertaMin = "Sconto del "+ scontoMin +"%";
 const offertaMagg = "Biglietto Standard";
-const offertaOver = "Biglietto Over65 (sconto del "+ scontoOver +"%)";
+const offertaOver = "Sconto del "+ scontoOver +"%";
 
 const carrozza = Math.floor(Math.random() * 12) + 1;
 const codiceCP = Math.floor(Math.random() * 99999) + 1;
@@ -30,7 +31,6 @@ const codiceCP = Math.floor(Math.random() * 99999) + 1;
 
 
 // riferimenti
-const title = document.getElementById("title");
 const inputNome = document.getElementById("name");
 const inputKm = document.getElementById("km");
 const inputfasciaEta = document.getElementById("fasciaEta");
@@ -54,6 +54,7 @@ let prezzo;
 
 genera.addEventListener("click",
     function(){
+        // nome = document.getElementById("name").value;
         nome = inputNome.value;
         // title.innerHTML = "Ciao " + nome ;
         console.log("nome:", nome);
@@ -87,7 +88,7 @@ genera.addEventListener("click",
         
         // output
         document.getElementById("nome").innerHTML = `${nome}`;
-        document.getElementById("kmOutPut").innerHTML = `${km} km`;
+        // document.getElementById("kmOutPut").innerHTML = `${km} km`;
         document.getElementById("offerta").innerHTML = `${offerta}`;
         document.getElementById("prezzo").innerHTML = `${prezzo.toFixed(2)}€`;
 
@@ -112,7 +113,7 @@ annulla.addEventListener("click",
         km = "";
         inputKm.value = "";
         console.log("km:", km);
-        // fasciaEta = "";
+        fasciaEta = "";
         // inputfasciaEta.value = "";
         // console.log("fasciaEta:", fasciaEta);
         
